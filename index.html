@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="tyylit.css">
+		<title>Harjoitustyö</title>
+    </head>
+    <body>
+        <nav>
+            <a href="./sivu2.html">Toinen sivu</a>
+            <a href="./sivu3.html">Kolmas sivu</a>
+        </nav>
+        <h1>Numeroarvauspeli</h1>
+        <form>
+			<p>Arvaa numero väliltä 1-100!</p>
+			<label for="vastaus">Vastauksesi (1-100):</label>
+			<input type="number" id="vastaus" name="vastaus"
+				min="1" max="100" value="1">
+			<input
+				onclick="Peli(document.getElementById('vastaus').value);"
+				type="button" id="nappi" name="nappi" value="Tarkista">
+		</form>
+
+        <div id="tarkistus"></div>
+		<div id="tilastot"></div>
+
+		<form onchange="sailytys(document.getElementById('kylla').checked);"">
+			<p>Talletaanko vastaus tiedot?</p>
+			<label for="ei">Ei</label>
+			<input type="radio" id="ei" name="tallennus" value="Ei">
+			<label for="kylla">Kyllä</label>
+			<input type="radio" id="kylla" name="tallennus" value="Kyllä">
+		</form>
+
+        <script>
+            "use strict";
+            function Peli(vastaus) {
+                let numero = Math.floor(Math.random() * 100) + 1;
+                let oikeita_vastauksia 
+                    = localStorage.getItem('oikeita_vastauksia');
+                let vaaria_vastauksia
+                    = localStorage.getItem('vaaria_vastauksia');
+                
+                if (vastaus >= 1 && vastaus <= 100) {
+                    if (vastaus == numero) {
+                        document.getElementById('tarkistus').innerHTML =
+                            "<p>Oikein! Arvaa uudelleen.</p>";
+                        if (oikeita_vastauksia != null) {
+                            oikeita_vastauksia = parseInt(oikeita_vastauksia) + 1;
+                            localStorage.setItem('oikeita_vastauksia', oikeita_vastauksia);
+                        }
+                    } else {
+                        document.getElementById('tarkistus').innerHTML =
+                            "<p>Väärin! Arvaa uudelleen.</p>";
+                        if (vaaria_vastauksia != null) {
+                            vaaria_vastauksia = parseInt(vaaria_vastauksia) + 1;
+                            localStorage.setItem('vaaria_vastauksia', vaaria_vastauksia);
+                        }
+                    }
+                } else {
+                    document.getElementById('tarkistus').innerHTML =
+						"<p><em>Anna vastaus lukuna väliltä 1-100.</em></p>";
+                }
+                if (oikeita_vastauksia != null || vaaria_vastauksia != null) {
+                    document.getElementById('tilastot').innerHTML =
+                        "<p>Oikeita arvauksia: " + oikeita_vastauksia + 
+                        ", Vääriä arvauksia: " + vaaria_vastauksia + "</p>";
+                } else {
+                    document.getElementById('tilastot').innerHTML = " *";
+                }
+                numero = Math.floor(Math.random() * 100) + 1;
+            }
+            function sailytys(valinta) {
+                if (valinta == true) {
+                    localStorage.setItem('oikeita_vastauksia', 0);
+                    localStorage.setItem('vaaria_vastauksia', 0);
+                } else {
+                    localStorage.clear();
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+1. a.
+Sivuston ensimmäinen sivu sisältää toiminnallisuutta. Siinä on numeronarvouspeli.
+Käyttäjä arvaa numeron väliltä 1-100. JavaScript laskee oikeat ja väärät vastaukset.
+LocalStorage toimii tietojen tallennukseen. 
+Toisella sivulla on linkki HTML-tutoriaaliin, ja lisäksi taulukko.
+Kolmannella sivulla on kuva. Sivuilla on linkit toisiinsa ja kaikilla Sivuilla on
+omat css-määritelmänsä.
+
+3. a.
+JavaScript luo random numeron välillä 1-100. Käyttäjän arvausta verrataan tähän
+numeron. Ohjelma laskee oikeat ja väärät vastaukset. Jos käyttäjä on laittanut
+tallennuksen päälle, näytetään oikeiden ja väärien vastauksien määrät sivulla. 
+JavaScriptissa on myös functio, joka määrittää vastauksien määrien tallennuksen
+tilanteen. 

@@ -1,0 +1,27 @@
+body {
+    background-color: silver;
+  }
+  
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+  }
+  
+p {
+    font-family: monospace, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: greenyellow;
+    text-align: center;
+  }
+a {
+    color: aquamarine;
+    padding: 1px 5px;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    border-radius: 8px;
+}
